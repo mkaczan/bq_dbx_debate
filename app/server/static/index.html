@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BigQuery vs Databricks Strategic Debate Arena & Enterprise Arbiter</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0a0e17',
+              card: '#111827',
+              border: '#1f2937',
+              bq: '#3b82f6',
+              dbx: '#ef4444',
+              arch: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0a0e17] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-[#111827]/90 backdrop-blur-md border-b border-gray-800 px-4 lg:px-8 py-3 flex items-center justify-between no-print">
+    <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-1 text-2xl font-black">
+        <span class="text-blue-500">🚀</span>
+        <span class="text-amber-400">🏛️</span>
+        <span class="text-red-500">⚡</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+          <span>BQ vs Databricks Debate Arena</span>
+          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded-full bg-indigo-900/60 text-indigo-300 border border-indigo-700/50">Multi-Agent AI</span>
+        </h1>
+        <p class="text-xs text-gray-400">Google Cloud BigQuery vs Databricks Lakehouse vs Independent Principal Architect</p>
+      </div>
+    </div>
+
+    <!-- Live Status & Action Buttons -->
+    <div class="flex items-center space-x-3">
+      <div id="session-status-chip" class="hidden sm:flex items-center space-x-2 px-3 py-1 rounded-full bg-gray-800 border border-gray-700 text-xs text-gray-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span id="session-status-text">Ready</span>
+      </div>
+
+      <button id="btn-toggle-diagnostics" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium border border-gray-700 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-chart-pie text-indigo-400"></i>
+        <span>Forensics Hub</span>
+      </button>
+
+      <button id="btn-export-modal" class="px-3 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 text-xs font-medium border border-indigo-500/40 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-file-export text-indigo-400"></i>
+        <span>Export Brief</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-6 space-y-6">
+
+    <!-- Enterprise Workload & Scenario Selector Card -->
+    <section class="glass-card p-5">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-gray-800">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-bold text-indigo-400">Target Enterprise Scenario</span>
+          <h2 id="display-enterprise-name" class="text-xl font-bold text-white flex items-center gap-2">
+            <span>Pan-European Healthcare & Hospital Network</span>
+            <span id="display-industry-badge" class="text-xs font-normal px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">Healthcare & Life Sciences</span>
+          </h2>
+          <p id="display-scenario-summary" class="text-xs text-gray-400 mt-1">Multi-cloud resilience, EU DORA compliance, 1,000 legacy T-SQL stored procedures, and Power BI concurrency bottlenecks.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Preset Selector -->
+          <div class="relative">
+            <select id="preset-selector" class="bg-gray-800 border border-gray-700 text-gray-200 text-xs rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none cursor-pointer">
+              <option value="healthcare_m_and_a">🏥 Healthcare & M&A (Azure / DORA / 1000 Stored Procs)</option>
+              <option value="retail_omnichannel">🛍️ Retail & E-Commerce (AWS / 220 Power BI Users)</option>
+              <option value="fintech_streaming">💳 FinTech & Streaming (Multi-Cloud / DLT Streaming)</option>
+              <option value="adtech_spiky">📊 AdTech Intelligence (GCP / Spiky Queries / Gemini)</option>
+            </select>
+          </div>
+
+          <button id="btn-open-params-modal" class="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs font-medium border border-gray-700 flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-sliders text-gray-400"></i>
+            <span>Edit Workload</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Workload Metric Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mt-4 text-center">
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">Annual DBU Spend</span>
+          <span id="stat-dbu-spend" class="text-sm font-bold text-red-400 font-mono">$850,000</span>
+        </div>
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">Lakehouse Volume</span>
+          <span id="stat-storage-tb" class="text-sm font-bold text-blue-400 font-mono">500 TB</span>
+        </div>
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">PySpark Jobs</span>
+          <span id="stat-pyspark-jobs" class="text-sm font-bold text-orange-400 font-mono">140 Jobs</span>
+        </div>
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">Power BI Analysts</span>
+          <span id="stat-powerbi-users" class="text-sm font-bold text-yellow-400 font-mono">90 Users</span>
+        </div>
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">Legacy Stored Procs</span>
+          <span id="stat-stored-procs" class="text-sm font-bold text-purple-400 font-mono">1,000 Procs</span>
+        </div>
+        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+          <span class="text-[10px] text-gray-400 uppercase tracking-wide block">Primary Cloud</span>
+          <span id="stat-cloud-strategy" class="text-sm font-bold text-emerald-400 font-mono truncate" title="Azure (Multi-Cloud DORA)">Azure</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 3-Agent Arena Stage -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      
+      <!-- Agent 1: BigQuery Strategist -->
+      <div id="card-agent-bq" class="glass-card p-4 flex flex-col justify-between border-blue-900/40 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🚀</span>
+              <div>
+                <h3 class="text-sm font-bold text-blue-400">Google BigQuery Strategist</h3>
+                <span class="text-[11px] text-gray-400">Enterprise Migration & Compete</span>
+              </div>
+            </div>
+            <span id="badge-status-bq" class="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-blue-950 text-blue-300 border border-blue-800">Ready</span>
+          </div>
+          <p class="text-xs text-gray-300 mt-3 italic">
+            "Eliminate the 60s cooldown tax with Fluid Scaling, run Velox C++ Lightning Engine on Spark, and federate ADLS in-place Day-1."
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400">
+          <span>Stance: <strong class="text-blue-300">Migrate to BQ</strong></span>
+          <span class="text-[10px] text-blue-400">Fluid Scaling + Lightning Engine</span>
+        </div>
+      </div>
+
+      <!-- Agent 2: Independent Principal Architect -->
+      <div id="card-agent-arch" class="glass-card p-4 flex flex-col justify-between border-amber-900/40 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-600/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🏛️</span>
+              <div>
+                <h3 class="text-sm font-bold text-amber-400">Principal Enterprise Architect</h3>
+                <span class="text-[11px] text-gray-400">Vendor-Neutral Strategic Arbiter</span>
+              </div>
+            </div>
+            <span id="badge-status-arch" class="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-950 text-amber-300 border border-amber-800">Awaiting Debate</span>
+          </div>
+          <p class="text-xs text-gray-300 mt-3 italic">
+            "Evaluating through 7-pillar MCDA, Conway's Law, EU DORA regulatory sovereignty, and net 5-year capital efficiency."
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400">
+          <span>Role: <strong class="text-amber-300">MCDA & Verdict</strong></span>
+          <span class="text-[10px] text-amber-400">6D Enterprise Framework</span>
+        </div>
+      </div>
+
+      <!-- Agent 3: Databricks Advocate -->
+      <div id="card-agent-dbx" class="glass-card p-4 flex flex-col justify-between border-red-900/40 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h3 class="text-sm font-bold text-red-400">Databricks Defense Advocate</h3>
+                <span class="text-[11px] text-gray-400">Principal Solutions Architect</span>
+              </div>
+            </div>
+            <span id="badge-status-dbx" class="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-red-950 text-red-300 border border-red-800">Ready</span>
+          </div>
+          <p class="text-xs text-gray-300 mt-3 italic">
+            "Avoid $1.5M+ TCOM refactoring traps. Optimize Databricks in 14 days with Serverless SQL, Photon, and Apache 2.0 Unity Catalog."
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400">
+          <span>Stance: <strong class="text-red-300">Retain & Optimize</strong></span>
+          <span class="text-[10px] text-red-400">Photon + Unity Catalog + UniForm</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Debate Control Center Bar -->
+    <section class="glass-card p-4 flex flex-wrap items-center justify-between gap-3 no-print">
+      <div class="flex items-center space-x-3">
+        <button id="btn-start-debate" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-lg shadow-indigo-600/30 flex items-center gap-2 transition active:scale-95">
+          <i class="fa-solid fa-play"></i>
+          <span>Start Debate</span>
+        </button>
+
+        <button id="btn-step-turn" disabled class="px-4 py-2 bg-gray-800 hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed text-gray-200 text-xs sm:text-sm font-semibold rounded-lg border border-gray-700 flex items-center gap-2 transition active:scale-95">
+          <i class="fa-solid fa-forward-step"></i>
+          <span>Next Turn (Step)</span>
+        </button>
+
+        <button id="btn-run-all" disabled class="px-4 py-2 bg-emerald-700/60 hover:bg-emerald-600/80 disabled:opacity-40 disabled:cursor-not-allowed text-emerald-100 text-xs sm:text-sm font-semibold rounded-lg border border-emerald-600/50 flex items-center gap-2 transition active:scale-95">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Auto-Play All</span>
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <button id="btn-open-intervene" disabled class="px-4 py-2 bg-purple-900/60 hover:bg-purple-800/80 disabled:opacity-40 disabled:cursor-not-allowed text-purple-200 text-xs sm:text-sm font-semibold rounded-lg border border-purple-700/50 flex items-center gap-2 transition">
+          <i class="fa-solid fa-comment-dots"></i>
+          <span>Executive Intervene</span>
+        </button>
+
+        <button id="btn-reset-debate" class="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-200 text-xs sm:text-sm font-medium rounded-lg border border-gray-700 transition" title="Reset Session">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Live Debate Transcript Stream & Speech Bubbles -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between px-1">
+        <h3 class="text-sm uppercase tracking-wider font-bold text-gray-400 flex items-center gap-2">
+          <i class="fa-solid fa-microphone-lines text-indigo-400"></i>
+          <span>Live Debate Transcript</span>
+          <span id="turn-counter-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">0 Turns</span>
+        </h3>
+        <span id="live-typing-indicator" class="hidden text-xs text-indigo-400 animate-pulse flex items-center gap-1.5">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <span id="typing-agent-name">Agent is formulating argument...</span>
+        </span>
+      </div>
+
+      <!-- Turn Stream Container -->
+      <div id="transcript-stream" class="space-y-4 min-h-[220px]">
+        <!-- Initial Placeholder -->
+        <div id="empty-transcript-placeholder" class="glass-card p-10 text-center text-gray-400 border-dashed border-gray-700 flex flex-col items-center justify-center space-y-3">
+          <div class="w-12 h-12 rounded-full bg-indigo-950/60 border border-indigo-800 flex items-center justify-center text-indigo-400 text-xl">
+            <i class="fa-solid fa-gavel"></i>
+          </div>
+          <h4 class="text-base font-semibold text-gray-300">Debate Ready to Commence</h4>
+          <p class="text-xs max-w-md text-gray-400">Click <strong>"Start Debate"</strong> to initiate the strategic confrontation between Google BigQuery Strategist and Databricks Defense Advocate, concluded by the Independent Principal Architect's MCDA Verdict.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forensic Diagnostics & Intelligence Hub Section -->
+    <section id="diagnostics-hub-section" class="glass-card p-5 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-800 gap-3">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-bold text-indigo-400">Forensic Engine & Intelligence Matrix</span>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>Enterprise Diagnostics & Mathematical Models</span>
+          </h3>
+        </div>
+
+        <!-- Tab Selector -->
+        <div class="flex items-center space-x-1 bg-gray-900/80 p-1 rounded-lg border border-gray-800 text-xs">
+          <button class="diag-tab-btn active px-3 py-1.5 rounded-md font-medium text-white bg-indigo-600 transition" data-tab="tab-mcda">MCDA Matrix</button>
+          <button class="diag-tab-btn px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-white transition" data-tab="tab-tco">TCO & Savings</button>
+          <button class="diag-tab-btn px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-white transition" data-tab="tab-spark">Spark Refactor</button>
+          <button class="diag-tab-btn px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-white transition" data-tab="tab-powerbi">Power BI Sim</button>
+          <button class="diag-tab-btn px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-white transition" data-tab="tab-blueprint">Blueprint</button>
+        </div>
+      </div>
+
+      <!-- Tab 1: MCDA Radar & Scorecard -->
+      <div id="tab-mcda" class="diag-tab-content space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-6 h-72 relative flex items-center justify-center">
+            <canvas id="mcdaRadarChart"></canvas>
+          </div>
+          <div class="lg:col-span-6 space-y-3">
+            <h4 class="text-sm font-bold text-gray-200">7-Pillar Enterprise Architecture Scorecard</h4>
+            <div id="mcda-table-container" class="overflow-x-auto text-xs">
+              <table class="w-full text-left border-collapse border border-gray-800">
+                <thead>
+                  <tr class="bg-gray-900 text-gray-300">
+                    <th class="p-2 border border-gray-800">Pillar</th>
+                    <th class="p-2 border border-gray-800 text-center">Weight</th>
+                    <th class="p-2 border border-gray-800 text-center text-blue-400">BigQuery</th>
+                    <th class="p-2 border border-gray-800 text-center text-red-400">Databricks</th>
+                    <th class="p-2 border border-gray-800 text-center text-amber-400">Open Mesh</th>
+                  </tr>
+                </thead>
+                <tbody id="mcda-table-body" class="divide-y divide-gray-800">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+            <div id="mcda-winner-callout" class="p-3 rounded-lg bg-amber-950/30 border border-amber-700/40 text-xs text-amber-200">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: TCO & Savings Comparison -->
+      <div id="tab-tco" class="diag-tab-content hidden space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-6 h-72 relative">
+            <canvas id="tcoBarChart"></canvas>
+          </div>
+          <div class="lg:col-span-6 space-y-4 text-xs">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-lg bg-gray-900 border border-gray-800">
+                <span class="text-gray-400 block">Current Annual Spend</span>
+                <span id="tco-current-spend" class="text-base font-bold text-gray-100 font-mono">$1,147,500</span>
+                <span class="text-[10px] text-gray-500 block">DBUs + Cloud VM Markup</span>
+              </div>
+              <div class="p-3 rounded-lg bg-blue-950/40 border border-blue-800/50">
+                <span class="text-blue-300 block">BigQuery Fluid Scaling</span>
+                <span id="tco-bq-spend" class="text-base font-bold text-blue-400 font-mono">$631,125</span>
+                <span class="text-[10px] text-blue-400/80 block">45% Net OpEx Reduction</span>
+              </div>
+              <div class="p-3 rounded-lg bg-red-950/40 border border-red-800/50">
+                <span class="text-red-300 block">Databricks In-Place Optimized</span>
+                <span id="tco-dbx-opt-spend" class="text-base font-bold text-red-400 font-mono">$727,500</span>
+                <span class="text-[10px] text-red-400/80 block">14-Day Zero-Risk Execution</span>
+              </div>
+              <div class="p-3 rounded-lg bg-purple-950/40 border border-purple-800/50">
+                <span class="text-purple-300 block">Migration TCOM Sunk Cost</span>
+                <span id="tco-migration-risk" class="text-base font-bold text-purple-400 font-mono">$1,250,000</span>
+                <span class="text-[10px] text-purple-400/80 block">Refactoring + Dual-Run Tax</span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 space-y-2">
+              <span class="font-bold text-gray-300 block">Key Cost Eliminators:</span>
+              <ul class="list-disc list-inside space-y-1 text-gray-400">
+                <li><strong class="text-gray-200">60-Second Cooldown Tax:</strong> BigQuery Fluid Scaling charges strictly per-second with $0 idle penalty.</li>
+                <li><strong class="text-gray-200">Delta Maintenance Tax:</strong> BigQuery background clustering in Capacitor is 100% free vs 18% spend on OPTIMIZE/VACUUM.</li>
+                <li><strong class="text-gray-200">In-Place Databricks Tuning:</strong> Serverless SQL + Photon + Spot VMs cuts compute without rewriting code.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Spark Refactoring & Codebase Compatibility Matrix -->
+      <div id="tab-spark" class="diag-tab-content hidden space-y-4 text-xs">
+        <h4 class="text-sm font-bold text-gray-200">PySpark Incompatibility & Engineering Refactoring Friction</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse border border-gray-800">
+            <thead>
+              <tr class="bg-gray-900 text-gray-300">
+                <th class="p-2.5 border border-gray-800">Workload Component</th>
+                <th class="p-2.5 border border-gray-800 text-center">Detected Instances</th>
+                <th class="p-2.5 border border-gray-800 text-center">Severity</th>
+                <th class="p-2.5 border border-gray-800 text-center">Est. Rewrite Hours</th>
+                <th class="p-2.5 border border-gray-800">Technical Friction / Incompatibility</th>
+              </tr>
+            </thead>
+            <tbody id="spark-friction-tbody" class="divide-y divide-gray-800">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+        <div class="p-3 rounded-lg bg-red-950/20 border border-red-800/40 flex items-center justify-between">
+          <div>
+            <span class="font-bold text-red-300">Total Engineering Refactoring Burden:</span>
+            <span id="spark-total-hours" class="text-gray-200 ml-2 font-mono">1,840 Hours</span>
+          </div>
+          <div>
+            <span class="font-bold text-red-300">Total Consulting Cost:</span>
+            <span id="spark-total-cost" class="text-gray-200 ml-2 font-mono font-bold">$322,000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Power BI Concurrency Simulator -->
+      <div id="tab-powerbi" class="diag-tab-content hidden space-y-6 text-xs">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+          <div class="space-y-4">
+            <h4 class="text-sm font-bold text-gray-200">Power BI Concurrency & Dashboard Latency Simulator</h4>
+            <div>
+              <label class="text-gray-400 block mb-1">Simulated Concurrent Power BI Analysts: <span id="pbi-slider-val" class="font-bold text-indigo-400">90 Users</span></label>
+              <input id="pbi-concurrency-slider" type="range" min="10" max="300" step="5" value="90" class="w-full accent-indigo-500 cursor-pointer">
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-lg bg-red-950/30 border border-red-800/40">
+                <span class="text-red-300 block">Databricks SQL Warehouse</span>
+                <span id="pbi-dbx-time" class="text-lg font-bold text-red-400 font-mono">7.8s</span>
+                <span id="pbi-queue-risk" class="text-[10px] px-2 py-0.5 rounded bg-red-900 text-red-200 inline-block mt-1">HIGH Queue Risk</span>
+              </div>
+              <div class="p-3 rounded-lg bg-blue-950/30 border border-blue-800/40">
+                <span class="text-blue-300 block">BigQuery BI Engine</span>
+                <span id="pbi-bq-time" class="text-lg font-bold text-blue-400 font-mono">0.45s</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-blue-900 text-blue-200 inline-block mt-1">Sub-Second DirectQuery</span>
+              </div>
+            </div>
+            <p class="text-gray-400">
+              <i class="fa-solid fa-circle-info text-indigo-400 mr-1"></i>
+              BigQuery BI Engine caches query execution trees in-memory, accelerating DAX DirectQuery visuals without moving data or altering reports.
+            </p>
+          </div>
+
+          <div class="h-64 relative">
+            <canvas id="powerBiBarChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Phased Implementation Blueprint -->
+      <div id="tab-blueprint" class="diag-tab-content hidden space-y-4 text-xs">
+        <h4 class="text-sm font-bold text-gray-200">Recommended Phased Enterprise Modernization Blueprint</h4>
+        <div id="blueprint-roadmap-container" class="space-y-3">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Parameters Edit Modal -->
+  <div id="params-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full p-6 space-y-5 bg-[#111827] max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-indigo-400"></i>
+          <span>Customize Enterprise Workload Parameters</span>
+        </h3>
+        <button id="btn-close-params-modal" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <form id="workload-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="sm:col-span-2">
+          <label class="text-gray-300 block mb-1">Enterprise Name</label>
+          <input id="input-enterprise-name" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="Pan-European Healthcare Network">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Industry Vertical</label>
+          <input id="input-industry" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="Healthcare & Life Sciences">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Annual DBU Spend ($ USD)</label>
+          <input id="input-dbu-spend" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="850000">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Total Storage Volume (TB)</label>
+          <input id="input-storage-tb" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="500">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Total PySpark Batch Jobs</label>
+          <input id="input-pyspark-jobs" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="140">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">PySpark / SQL Lines of Code</label>
+          <input id="input-loc" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="125000">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Power BI Concurrent Users</label>
+          <input id="input-powerbi-users" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="90">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Legacy Stored Procedures Count</label>
+          <input id="input-stored-procs" type="number" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="1000">
+        </div>
+
+        <div>
+          <label class="text-gray-300 block mb-1">Primary Cloud</label>
+          <select id="input-primary-cloud" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <option value="Azure">Azure</option>
+            <option value="AWS">AWS</option>
+            <option value="GCP">GCP</option>
+            <option value="Multi-Cloud">Multi-Cloud (AWS + Azure)</option>
+          </select>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="text-gray-300 block mb-1">Regulatory Framework</label>
+          <input id="input-regulatory" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="EU GDPR, EHDS & DORA Regulatory Framework">
+        </div>
+      </form>
+
+      <div class="flex items-center justify-end space-x-3 pt-3 border-t border-gray-800">
+        <button id="btn-cancel-params" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs font-medium">Cancel</button>
+        <button id="btn-save-params" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold">Apply & Recalculate Forensics</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Intervention Modal -->
+  <div id="intervene-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full p-6 space-y-4 bg-[#111827]">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-comment-dots text-purple-400"></i>
+          <span>Executive Direct Intervention</span>
+        </h3>
+        <button id="btn-close-intervene-modal" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <p class="text-xs text-gray-300">
+        Inject an executive constraint, question, or regulatory requirement directly into the active debate. The next agent will address your prompt immediately.
+      </p>
+
+      <!-- Quick Preset Prompt Chips -->
+      <div class="space-y-1.5">
+        <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">Quick Challenges:</span>
+        <div class="flex flex-wrap gap-1.5">
+          <button class="quick-prompt-btn px-2.5 py-1 rounded bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-300 border border-gray-700 transition">How does this satisfy EU DORA exit mandates?</button>
+          <button class="quick-prompt-btn px-2.5 py-1 rounded bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-300 border border-gray-700 transition">Can Dataproc Lightning Engine run Python UDFs?</button>
+          <button class="quick-prompt-btn px-2.5 py-1 rounded bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-300 border border-gray-700 transition">What about our 1,000 legacy stored procedures?</button>
+          <button class="quick-prompt-btn px-2.5 py-1 rounded bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-300 border border-gray-700 transition">What are the hidden BigLake cross-cloud egress fees?</button>
+        </div>
+      </div>
+
+      <div>
+        <label class="text-gray-300 text-xs block mb-1">Your Executive Challenge / Prompt:</label>
+        <textarea id="textarea-user-prompt" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-xs text-white focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="e.g., We have strict compliance requirements under EU EHDS. How does BigQuery vs Databricks ensure zero data movement across borders?"></textarea>
+      </div>
+
+      <div class="flex items-center justify-end space-x-3 pt-3 border-t border-gray-800">
+        <button id="btn-cancel-intervene" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs font-medium">Cancel</button>
+        <button id="btn-submit-intervene" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Inject & Trigger Agent Response</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export Executive Brief Modal -->
+  <div id="export-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-3xl w-full p-6 space-y-4 bg-[#111827] max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-file-lines text-indigo-400"></i>
+          <span>Executive Strategic Brief & Verdict Export</span>
+        </h3>
+        <button id="btn-close-export-modal" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto bg-gray-900/80 p-4 rounded-lg border border-gray-800">
+        <pre id="export-markdown-preview" class="text-xs font-mono text-gray-300 whitespace-pre-wrap selection:bg-indigo-600"></pre>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-gray-800 text-xs">
+        <div class="flex items-center space-x-2">
+          <button id="btn-copy-markdown" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg border border-gray-700 flex items-center gap-1.5 transition">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy Markdown</span>
+          </button>
+          <button id="btn-download-json" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg border border-gray-700 flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-code"></i>
+            <span>Download JSON</span>
+          </button>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="window.print()" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg border border-gray-700 flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-print"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button id="btn-download-markdown" class="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-download"></i>
+            <span>Download .md File</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-900 py-4 px-4 text-center text-xs text-gray-500 no-print">
+    BigQuery vs Databricks Strategic Arena &copy; 2026 | Powered by Google Gemini Multi-Agent Orchestration & Enterprise MCDA Framework
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
