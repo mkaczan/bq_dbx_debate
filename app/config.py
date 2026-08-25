@@ -2,7 +2,7 @@
 import os
 
 # Model configuration
-DEFAULT_MODEL = os.getenv("DEBATE_MODEL", "gemini-2.5-flash")
+DEFAULT_MODEL = os.getenv("DEBATE_MODEL", "gemini-3.7-flash")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # Server configuration

@@ -47,7 +47,7 @@ graph TB
             ArchAgent["🏛️ Independent Principal Architect"]
         end
         
-        LLM["Google GenAI SDK (Gemini 2.5 Flash) / Heuristic Fallback"]
+        LLM["Google GenAI SDK (Gemini 3.7 Flash) / Heuristic Fallback"]
     end
 
     subgraph Forensic_Tools ["Forensic & Mathematical Calculation Tools"]
